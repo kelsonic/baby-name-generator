@@ -7,7 +7,7 @@ form {
   margin: 50px 0 0;
   max-width: 600px;
   padding: 20px 30px 30px;
-  width: 100%;
+  width: calc(100% - 40px);
 
   @media screen and (max-width: 600px) {
     margin: 0;

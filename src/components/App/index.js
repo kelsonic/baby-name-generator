@@ -95,7 +95,7 @@ function App() {
     <>
       <form onSubmit={onSubmit}>
         {/* Title */}
-        <h1>Generate a baby name! 🍼👶 🎉</h1>
+        <h1>👶 Baby Name Generator 👶</h1>
 
         {/* Data sources */}
         <DataSources
@@ -154,6 +154,21 @@ function App() {
 
       {/* Favorites */}
       <Favorites favorites={favorites} setFavorites={setFavorites} />
+
+      {/* Footer */}
+      <footer>
+        <p>
+          Made with ❤️ by{" "}
+          <a
+            href="https://github.com/kelsonic"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            @kelsonic
+          </a>{" "}
+          for his little dude!
+        </p>
+      </footer>
     </>
   );
 }
