@@ -26,11 +26,12 @@ const defaultNamesLookup = txtFiles.reduce(
       .map((line) => {
         // Convert each line to a list item with a ',' delimiter.
         return {
+          dataSource: "USA_Nationwide",
+          gender: line.split(",")[1],
+          name: line.split(",")[0],
+          occurrences: parseInt(line.split(",")[2].replace("\r", "")),
           // Parse the year from the file name.
           year: parseInt(file.split(".")[0].split("yob")[1]),
-          name: line.split(",")[0],
-          gender: line.split(",")[1],
-          occurrences: parseInt(line.split(",")[2].replace("\r", "")),
         };
       });
     namesLookup["male"] = [
