@@ -119,6 +119,18 @@ function App() {
         {/* Title */}
         <h1>Generate a baby name! 🍼👶 🎉</h1>
 
+        <p className="subtitle">
+          All data comes from{" "}
+          <a
+            href="https://www.ssa.gov/oact/babynames/"
+            rel="noreferrer noopener"
+            target="_blank"
+          >
+            SSA.gov
+          </a>
+          .
+        </p>
+
         <div className="fields">
           {/* Gender */}
           <button

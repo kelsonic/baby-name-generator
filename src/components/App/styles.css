@@ -10,7 +10,18 @@
 
 .App h1 {
   font-size: 2rem;
+  margin: 0;
+}
+
+.App .subtitle {
+  color: #fff;
+  font-size: 0.6rem;
   margin: 0 0 30px;
+}
+
+.App .subtitle a {
+  color: #5d9e90;
+  text-decoration: none;
 }
 
 .App .field {
