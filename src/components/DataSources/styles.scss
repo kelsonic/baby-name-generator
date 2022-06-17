@@ -1,0 +1,53 @@
+.data-sources-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  .subtitle {
+    color: #fff;
+    font-size: 0.6rem;
+  }
+
+  @media (max-width: 768px) {
+    .subtitle {
+      margin: 0 0 10px;
+    }
+  }
+
+  .link {
+    margin: 15px 0;
+  }
+
+  .data-sources {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 15px;
+    width: 100%;
+
+    .data-source {
+
+    }
+  }
+
+  hr {
+    background: transparent;
+    border: none;
+    border-top: 1px solid #555555;
+    margin: 0 0 15px;
+    padding: 0;
+    width: 100%;
+  }
+
+  .genders {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 15px;
+    width: 100%;
+
+    .gender {
+    }
+  }
+}

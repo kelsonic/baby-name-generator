@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  align-items: center;
+  background: radial-gradient(circle at center, #333333 0%, #000000 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 16px;
+  margin: 0;
+  justify-content: center;
+  padding: 0 10px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+}
+
+input[type="text"] {
+  background: transparent;
+  border-radius: 5px;
+  border: 1px solid #555555;
+  color: #ffffff;
+  font-size: 1.1rem;
+  outline: none;
+  padding: 5px 10px;
+
+  &:focus {
+    border: 1px solid transparent;
+    outline: 1px solid #5d7fc1;
+  }
+}
+
+a,
+.link {
+  background: transparent;
+  border: none;
+  color: #90cfc2;
+  cursor: pointer;
+  font-size: 0.6rem;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  transition: all 0.5s ease;
+
+  &:hover {
+    color: #ffffff;
+    background: transparent;
+    border: none;
+  }
+}
+
+button {
+  background: #3b3f44;
+  border: 3px solid transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0;
+  padding: 10px 20px;
+  transition: all 0.5s ease;
+
+  &:hover {
+    background: #3b3f44;
+    border: 3px solid #565b61;
+  }
+
+  &:focus {
+    border: 3px solid #5d7fc1;
+    outline: none;
+  }
+
+  &.selected {
+    border: 3px solid #77c9b8;
+    color: #c4fff3;
+  }
+}
+
+button[type="submit"] {
+  background: #5d9e90;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  margin: 20px 0 0;
+}

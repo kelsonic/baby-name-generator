@@ -2,11 +2,14 @@
 import moment from "moment";
 import { useState } from "react";
 // Relative imports.
-import link from "../../assets/link.png";
-import "./styles.css";
+import "./styles.scss";
+import DataSources from "components/DataSources";
+import Filters from "components/Filters";
+import link from "assets/link.png";
 
 function App() {
   // Derive the state we need.
+  const [dataSource, setDataSource] = useState("USA Nationwide");
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites") || "[]")
   );
@@ -16,22 +19,6 @@ function App() {
   const [maxOccurrences, setMaxOccurrences] = useState("10000");
   const [nameDetails, setNameDetails] = useState("");
   const [startsWith, setStartsWith] = useState("");
-
-  const onLastNameChange = (event) => {
-    setLastName(event.target.value);
-  };
-
-  const onMaxOccurrencesChange = (event) => {
-    setMaxOccurrences(event.target.value);
-  };
-
-  const onStartsWithChange = (event) => {
-    setStartsWith(event.target.value);
-  };
-
-  const onGenderChange = (newGender) => (event) => {
-    setGender(newGender);
-  };
 
   const onFavorite = (newFavoritedState) => () => {
     // Update the favorites list in local storage.
@@ -121,84 +108,27 @@ function App() {
 
   return (
     <>
-      <form className="App" onSubmit={onSubmit}>
+      <form onSubmit={onSubmit}>
         {/* Title */}
         <h1>Generate a baby name! 🍼👶 🎉</h1>
 
-        <p className="subtitle">
-          All data comes from{" "}
-          <a
-            href="https://www.ssa.gov/oact/babynames/"
-            rel="noreferrer noopener"
-            target="_blank"
-          >
-            SSA.gov
-          </a>
-          .
-        </p>
+        {/* Data sources */}
+        <DataSources
+          dataSource={dataSource}
+          gender={gender}
+          setDataSource={setDataSource}
+          setGender={setGender}
+        />
 
-        <div className="fields">
-          {/* Gender */}
-          <button
-            className={`gender${gender === "M" ? " selected" : ""}`}
-            onClick={onGenderChange("M")}
-            type="button"
-          >
-            Male
-          </button>
-          <button
-            className={`gender${gender === "F" ? " selected" : ""}`}
-            onClick={onGenderChange("F")}
-            type="button"
-          >
-            Female
-          </button>
-
-          {/* Starts with */}
-          <div className="field">
-            <label htmlFor="startsWith">Starts with</label>
-            <input
-              autoFocus
-              className="starts-with"
-              id="startsWith"
-              maxLength="1"
-              name="startsWith"
-              onChange={onStartsWithChange}
-              placeholder="A"
-              type="text"
-              value={startsWith}
-            />
-          </div>
-
-          {/* Last name */}
-          <div className="field">
-            <label htmlFor="lastName">Last name</label>
-            <input
-              className="last-name"
-              id="lastName"
-              onChange={onLastNameChange}
-              placeholder="Adams"
-              type="text"
-              value={lastName}
-            />
-          </div>
-        </div>
-
-        {/* Max Occurrences */}
-        <div className="field">
-          <label htmlFor="maxOccurrences">Max Occurrences</label>
-          <input
-            id="maxOccurrences"
-            max="10000"
-            min="5"
-            name="maxOccurrences"
-            onChange={onMaxOccurrencesChange}
-            step="1"
-            type="range"
-            value={maxOccurrences}
-          />
-          <p>{maxOccurrences}</p>
-        </div>
+        {/* Filters / Search Criteria */}
+        <Filters
+          lastName={lastName}
+          maxOccurrences={maxOccurrences}
+          setLastName={setLastName}
+          setMaxOccurrences={setMaxOccurrences}
+          setStartsWith={setStartsWith}
+          startsWith={startsWith}
+        />
 
         {/* Submit */}
         <button disabled={loading} type="submit">
