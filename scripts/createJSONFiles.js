@@ -2,16 +2,23 @@
 const fs = require("fs");
 const path = require("path");
 
-// Get all the txt files in the data directory.
-const txtFiles = fs.readdirSync(path.join(__dirname, "../data"));
+// Delete target directory if it exists.
+console.log("Deleting previous target directory...");
+try {
+  fs.rmSync(path.join(__dirname, "../src/data"), { recursive: true });
+  console.log("✅ Deleted target directory successfully!");
+} catch (error) {
+  console.log("✅ Target directory already deleted!");
+}
 
-// Show spinner.
-console.log("Creating JS object... 🕓");
+// Get all the txt files in the data directory.
+const txtFiles = fs.readdirSync(path.join(__dirname, "../data/USA_Nationwide"));
 
 // Read each file and convert each row to a list item.
+console.log("Creating JS object... 🕓");
 const defaultNamesLookup = txtFiles.reduce(
   (namesLookup, file) => {
-    const filePath = path.join(__dirname, "../data", file);
+    const filePath = path.join(__dirname, "../data/USA_Nationwide", file);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const lines = fileContents.split("\n");
     const fileListItems = lines
@@ -38,25 +45,31 @@ const defaultNamesLookup = txtFiles.reduce(
   },
   { male: [], female: [] }
 );
-
-// Log building json file.
 console.log("✅ Built up data structure successfully!");
-console.log("Building male.json file... 🕓");
+
+// Create the target directory.
+console.log("Creating target directory...");
+try {
+  fs.mkdirSync(path.join(__dirname, "../src/data"));
+  console.log("✅ Target directory created successfully!");
+} catch (error) {
+  console.log("✅ Target directory already exists!");
+}
 
 // Create a `male.json` file in the data directory that includes the default male names.
+console.log("Building male.json file... 🕓");
 fs.writeFileSync(
   path.join(__dirname, "../src/data", "male.json"),
   JSON.stringify(defaultNamesLookup["male"], null, 2),
   "utf8"
 );
-
-// Log building json file.
 console.log("✅ Built src/data/male.json successfully!");
-console.log("Building female.json file... 🕓");
 
 // Create a `female.json` file in the data directory that includes the default female names.
+console.log("Building female.json file... 🕓");
 fs.writeFileSync(
   path.join(__dirname, "../src/data", "female.json"),
   JSON.stringify(defaultNamesLookup["female"], null, 2),
   "utf8"
 );
+console.log("✅ Built src/data/female.json successfully!");

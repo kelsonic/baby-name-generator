@@ -1,9 +1,9 @@
 // Node modules.
-import moment from "moment";
 import { useState } from "react";
 // Relative imports.
 import "./styles.scss";
 import DataSources from "components/DataSources";
+import Favorites from "components/Favorites";
 import Filters from "components/Filters";
 import link from "assets/link.png";
 
@@ -17,7 +17,7 @@ function App() {
   const [lastName, setLastName] = useState("");
   const [loading, setLoading] = useState(false);
   const [maxOccurrences, setMaxOccurrences] = useState("10000");
-  const [nameDetails, setNameDetails] = useState("");
+  const [nameDetails, setNameDetails] = useState();
   const [startsWith, setStartsWith] = useState("");
 
   const onFavorite = (newFavoritedState) => () => {
@@ -36,24 +36,9 @@ function App() {
     } else {
       favorites.push({
         ...nameDetails,
-        dateFavorited: new Date(),
+        dateFavorited: new Date().toISOString(),
       });
     }
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-
-    // Update the favorites state.
-    setFavorites(favorites);
-  };
-
-  const onDeleteFavorite = (favoriteDetails) => () => {
-    // Update the favorites list in local storage.
-    const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-    favorites.splice(
-      favorites.findIndex(
-        (favoriteDetails) => favoriteDetails.name === nameDetails.name
-      ),
-      1
-    );
     localStorage.setItem("favorites", JSON.stringify(favorites));
 
     // Update the favorites state.
@@ -146,7 +131,8 @@ function App() {
               rel="noreferrer noopener"
               target="_blank"
             >
-              <img alt="external link" className="link" src={link} /> Meaning
+              <img alt="external link" className="external-link" src={link} />{" "}
+              Meaning
             </a>
             <p>Gender: {nameDetails?.gender === "M" ? "Male" : "Female"}</p>
             <p>Occurrences: {nameDetails?.occurrences}</p>
@@ -167,30 +153,7 @@ function App() {
       </form>
 
       {/* Favorites */}
-      {favorites?.length ? (
-        <div className="favorites">
-          <h2>Favorites</h2>
-          {favorites.map((favoriteDetails) => (
-            <div className="favorite" key={favoriteDetails?.name}>
-              <h3>{favoriteDetails?.name}</h3>
-              <p className="delete" onClick={onDeleteFavorite(favoriteDetails)}>
-                Remove
-              </p>
-              <p>
-                Favorited on:{" "}
-                {favoriteDetails?.dateFavorited
-                  ? moment(favoriteDetails?.dateFavorited).format("MM/DD/YYYY")
-                  : "N/A"}
-              </p>
-              <p>
-                Gender: {favoriteDetails?.gender === "M" ? "Male" : "Female"}
-              </p>
-              <p>Occurrences: {favoriteDetails?.occurrences}</p>
-              <p>Year: {favoriteDetails?.year}</p>
-            </div>
-          ))}
-        </div>
-      ) : null}
+      <Favorites favorites={favorites} setFavorites={setFavorites} />
     </>
   );
 }

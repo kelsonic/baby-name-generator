@@ -8,86 +8,57 @@ form {
   max-width: 600px;
   padding: 20px 30px 30px;
   width: 100%;
-}
 
-form .generated {
-  align-items: center;
-  background: linear-gradient(to right, #3b3f44, #494d53);
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin: 40px 0 0;
-  padding: 20px 45px;
-  position: relative;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  form .generated {
-    padding: 20px;
+  @media screen and (max-width: 600px) {
+    margin: 0;
   }
-}
 
-form .generated .link {
-  max-width: 11px;
-}
+  .generated {
+    align-items: center;
+    background: linear-gradient(to right, #3b3f44, #494d53);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 40px 0 0;
+    padding: 20px;
+    position: relative;
+    width: 100%;
 
-form .generated a {
-  font-size: 0.8rem;
-}
+    .external-link {
+      max-width: 10px;
+    }
 
-form .generated h2 {
-  color: #8ab2ff;
-  font-size: 2.5rem;
-  margin: 0 0 10px;
-}
+    .favorite-toggle {
+      background: transparent;
+      border: none;
+      color: #77c9b8;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      top: 7px;
+      right: 10px;
+    }
 
-form .generated h2.female {
-  color: #b75b76;
-}
+    a {
+      font-size: 0.8rem;
+      margin: 0 0 5px;
+    }
 
-form .generated p {
-  font-size: 0.8rem;
-  margin: 0;
-}
+    h2 {
+      color: #8ab2ff;
+      font-size: 2.5rem;
+      margin: 0;
 
-form .generated .favorite-toggle {
-  background: transparent;
-  border: none;
-  color: #77c9b8;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
+      &.female {
+        color: #b75b76;
+      }
+    }
 
-.favorites {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  padding: 0 0 20px;
-}
-
-.favorite {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 0 0 20px;
-}
-
-.favorite h3 {
-  margin: 0 0 5px;
-}
-
-.favorite p {
-  font-size: 0.8rem;
-}
-
-.favorite .delete {
-  color: #ff8eaf;
-  cursor: pointer;
-  margin: 0 0 5px;
+    p {
+      font-size: 0.8rem;
+      margin: 0;
+    }
+  }
 }
