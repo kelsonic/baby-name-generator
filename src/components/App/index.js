@@ -76,6 +76,11 @@ function App() {
   const onSubmit = async (event) => {
     event.preventDefault();
 
+    // Escape early if we are loading.
+    if (loading) {
+      return;
+    }
+
     // Show loading indicator.
     setLoading(true);
 
