@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # Large files
-/src/data/**
+src/data
 
 # dependencies
 /node_modules
@@ -20,6 +20,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.firebase
 
 npm-debug.log*
 yarn-debug.log*
