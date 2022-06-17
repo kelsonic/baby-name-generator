@@ -2,6 +2,7 @@
 import moment from "moment";
 import { useState } from "react";
 // Relative imports.
+import link from "../../assets/link.png";
 import "./styles.css";
 
 function App() {
@@ -205,6 +206,13 @@ function App() {
             <h2>
               {nameDetails?.name} {lastName}
             </h2>
+            <a
+              href={`https://www.babynamespedia.com/meaning/${nameDetails?.name}`}
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              <img alt="external link" className="link" src={link} /> Meaning
+            </a>
             <p>Gender: {nameDetails?.gender === "M" ? "Male" : "Female"}</p>
             <p>Occurrences: {nameDetails?.occurrences}</p>
             <p>Year: {nameDetails?.year}</p>
