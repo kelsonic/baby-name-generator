@@ -1,0 +1,150 @@
+.App {
+  align-items: center;
+  background: #2e3036;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px 0 0;
+  padding: 50px 100px 30px;
+}
+
+.App h1 {
+  font-size: 2rem;
+  margin: 0 0 30px;
+}
+
+.App .field {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px;
+}
+
+.App .fields {
+  align-items: center;
+  display: flex;
+  margin: 0 0 20px;
+  width: 100%;
+}
+
+.App .fields .field {
+  margin: 0 0 0 20px;
+}
+
+.App .fields .field:first-of-type {
+  margin: 0;
+}
+
+.App .fields .field:last-of-type {
+  margin: 0 0 0 20px;
+}
+
+.App label {
+  align-self: flex-start;
+  margin: 0 0 5px;
+}
+
+.App .starts-with {
+  align-self: flex-start;
+  width: 56px;
+}
+
+.App button {
+  background: #3b3f44;
+  border: 3px solid transparent;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 12px 0 0 0;
+  transition: all 0.5s ease;
+}
+
+.App button:last-of-type {
+  margin: 12px 20px 0 0;
+}
+
+.App button:hover {
+  background: #3b3f44;
+  border: 3px solid #ffffff;
+}
+
+.App button.selected {
+  border: 3px solid #77c9b8;
+  color: #c4fff3;
+}
+
+.App button[type="submit"] {
+  background: #5d9e90;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  margin: 20px 0 0;
+}
+
+.App .generated {
+  align-items: center;
+  background: linear-gradient(to right, #3b3f44, #494d53);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 40px 0 0;
+  padding: 20px 45px;
+  position: relative;
+  width: 100%;
+}
+
+.App .generated h2 {
+  color: #8ab2ff;
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+
+.App .generated h2.female {
+  color: #b75b76;
+}
+
+.App .generated p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.App .generated .favorite-toggle {
+  background: transparent;
+  border: none;
+  color: #77c9b8;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.favorites {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px;
+}
+
+.favorite h3 {
+  margin: 0 0 5px;
+}
+
+.favorite p {
+  font-size: 0.8rem;
+}
+
+.favorite .delete {
+  color: #ff8eaf;
+  cursor: pointer;
+  margin: 0 0 5px;
+}
